@@ -39,8 +39,6 @@ public class newsArticlesAdapter extends RecyclerView.Adapter<newsArticlesAdapte
         holder.title.setText(articles.getTitle());
         holder.subtitle.setText(articles.getDescription());
 
-        Log.d("Message", articles.getUrlToImage());
-        Log.d("Message", articles.getUrl());
         Picasso.get().load(articles.getUrlToImage()).into(holder.newsImage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

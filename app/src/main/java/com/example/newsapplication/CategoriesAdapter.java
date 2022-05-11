@@ -39,7 +39,6 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
     public void onBindViewHolder(@NonNull CategoriesAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         NewsCategoryModel newsCategoryModel = arrayList.get(position);
         holder.CategoryTV.setText(newsCategoryModel.getCategories());
-
         Picasso.get().load(newsCategoryModel.getCategoryImageUrl()).into(holder.CategoryIV);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
