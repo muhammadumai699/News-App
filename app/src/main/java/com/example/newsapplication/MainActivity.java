@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity implements CategoriesAdapter
     private CategoriesAdapter categoriesAdapter;
     private newsArticlesAdapter newsArticlesAdapter;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,11 +69,17 @@ public class MainActivity extends AppCompatActivity implements CategoriesAdapter
         String categoryUrl = "https://newsapi.org/v2/top-headlines?country=in&category="+ Category +"&apiKey=737b6966b5ea4c958245f0075ed9bb90";
         String url = "https://newsapi.org/v2/top-headlines?country=in&excludeDomains=stackoverflow.com&sortBy=publishedAt&language=en&apiKey=737b6966b5ea4c958245f0075ed9bb90";
         String Base_URL = "https://newsapi.org/";
+
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Base_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
+
         RetrofitApi retrofitApi = retrofit.create(RetrofitApi.class);
+
+
         Call<NewsModel> call;
 
         if (Category.equals("All")){
@@ -92,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements CategoriesAdapter
                 ArrayList<Articles> articles = newsModel.getArticles();
                 for (int i= 0; i<articles.size();i++){
                     articlesArrayList.add(new Articles(articles.get(i).getTitle(),articles.get(i).getDescription(),
-                            articles.get(i).getUrlToImage(),articles.get(i).getUrl(),articles.get(i).getContent()));
+                            articles.get(i).getUrl(),articles.get(i).getUrlToImage(),articles.get(i).getContent()));
                     newsArticlesAdapter.notifyDataSetChanged();
                 }
             }

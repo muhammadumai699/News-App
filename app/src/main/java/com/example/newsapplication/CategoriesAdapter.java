@@ -2,6 +2,7 @@ package com.example.newsapplication;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
     public void onBindViewHolder(@NonNull CategoriesAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         NewsCategoryModel newsCategoryModel = arrayList.get(position);
         holder.CategoryTV.setText(newsCategoryModel.getCategories());
+
         Picasso.get().load(newsCategoryModel.getCategoryImageUrl()).into(holder.CategoryIV);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,6 +2,7 @@ package com.example.newsapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,11 @@ public class newsArticlesAdapter extends RecyclerView.Adapter<newsArticlesAdapte
         Articles articles = articlesArrayList.get(position);
         holder.title.setText(articles.getTitle());
         holder.subtitle.setText(articles.getDescription());
+
+        Log.d("Message", articles.getUrlToImage());
+        Log.d("Message", articles.getUrl());
         Picasso.get().load(articles.getUrlToImage()).into(holder.newsImage);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
